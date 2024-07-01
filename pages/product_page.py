@@ -10,7 +10,7 @@ class ProductPage(BasePage):
         add_to_basket_button.click()
 
     def should_be_alert_after_added_to_basket(self):
-        assert self.is_element_present(*ProductPageLocators.FIRST_ALERT), "Alert is not presented"
+        assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Alert is not presented"
 
     def should_be_product_name_in_alert(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), \
@@ -18,10 +18,10 @@ class ProductPage(BasePage):
 
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
 
-        assert self.is_element_present(*ProductPageLocators.FIRST_ALERT_PRODUCT_NAME), \
+        assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE_PRODUCT_NAME), \
             "Product name is not presented in alert"
 
-        product_name_in_alert = self.browser.find_element(*ProductPageLocators.FIRST_ALERT_PRODUCT_NAME).text
+        product_name_in_alert = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_PRODUCT_NAME).text
 
         assert product_name_in_alert == product_name, "Book name is incorrect"
 
@@ -37,3 +37,11 @@ class ProductPage(BasePage):
         product_price_in_alert = self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_PRICE).text
 
         assert product_price_in_alert == product_price, "Price is incorrect"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is presented, but should not be"
+
+    def should_be_disappeared_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is not disappeared, but should be"
