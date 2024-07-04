@@ -5,6 +5,11 @@ from selenium.webdriver.firefox.options import Options as OptionsFirefox
 
 
 def pytest_addoption(parser):
+    """
+    Добавление выбора опций браузера и языка для запуска тестов
+    :param parser: Объект pytest для парсинга аргументов командной строки, а также для значений файла .ini
+    :return: Процедура
+    """
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store', default="ru",
@@ -13,6 +18,11 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="function")
 def browser(request):
+    """
+    Инициализация браузера
+    :param request: Встроенная фикстура request, которая получает данные о текущем запущенном тесте
+    :return: Процедура
+    """
     browser_name = request.config.getoption("browser_name")
     language = request.config.getoption("language")
 

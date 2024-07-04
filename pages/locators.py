@@ -1,7 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
-class BasePageLocators():
+class BasePageLocators:
+    """
+    Локаторы для base_page
+    """
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_BUTTON = (By.CSS_SELECTOR, "div.basket-mini .btn-group a.btn.btn-default")
@@ -10,10 +13,16 @@ class BasePageLocators():
 
 
 class MainPageLocators:
+    """
+    Локаторы для main_page
+    """
     pass
 
 
 class LoginPageLocators:
+    """
+    Локаторы для login_page
+    """
     LOGIN_FORM = (By.CSS_SELECTOR, "form#login_form")
     LOGIN_EMAIL_FIELD = (By.CSS_SELECTOR, "#id_login-username")
     LOGIN_PASSWORD_FIELD = (By.CSS_SELECTOR, "#id_login-password")
@@ -27,6 +36,9 @@ class LoginPageLocators:
 
 
 class ProductPageLocators:
+    """
+    Локаторы для product_page
+    """
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, "button.btn-add-to-basket")
     PRODUCT_NAME = (By.CSS_SELECTOR, "div.product_main  h1")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alertinner")
@@ -36,5 +48,8 @@ class ProductPageLocators:
 
 
 class BasketPageLocators:
+    """
+    Локаторы для basket_page
+    """
     PRODUCT_FORM = (By.CSS_SELECTOR, "form#basket_formset")
     EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "div.content p")
