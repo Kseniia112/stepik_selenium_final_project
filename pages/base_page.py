@@ -41,13 +41,6 @@ class BasePage():
 
         return True
 
-    # def get_element_text(self, how, what):
-    #     try:
-    #         self.browser.find_element(how, what).text
-    #     except NoSuchElementException:
-    #         return 'No such element on the page'
-    #     return self.browser.find_element(how, what).text
-
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
