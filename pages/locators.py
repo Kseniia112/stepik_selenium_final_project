@@ -6,6 +6,7 @@ class BasePageLocators():
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_BUTTON = (By.CSS_SELECTOR, "div.basket-mini .btn-group a.btn.btn-default")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    LANGUAGE = (By.CSS_SELECTOR, "html[lang]")
 
 
 class MainPageLocators:
